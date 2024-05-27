@@ -1,0 +1,11 @@
+{
+  "name": "schnaq.app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:schnaq/schnaq.app.git",
+  "author": "schnaq GmbH",
+  "license": "MIT",
+  "scripts": {
+    "build": "exit 0"
+  }
+}

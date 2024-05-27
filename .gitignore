@@ -71,3 +71,4 @@ resources/public/css/wetog_main.min.css*
 resources/public/css/.sass-cache
 
 yarn-error.log
+.vercel
