@@ -2,6 +2,7 @@
 // app does on the projector, checks it against the API and forwards to the
 // schnaq. ?code=12345678 (QR codes, old links) pre-fills it. The error texts
 // come from the form's data attributes, so they are in the page's language.
+// Links to #code focus the field natively.
 
 const API = 'https://api.app.schnaq.com/schnaq/by-access-code'
 
@@ -34,11 +35,11 @@ input.addEventListener('input', () => {
 form.addEventListener('submit', async (event) => {
   event.preventDefault()
   // Codes are numbers and the app's copy button drops leading zeros.
-  const code = digits().padStart(8, '0')
+  const accessCode = digits().padStart(8, '0')
 
   button.disabled = true
   try {
-    const response = await fetch(`${API}?access-code=${code}`)
+    const response = await fetch(`${API}?access-code=${accessCode}`)
     if (response.status === 400 || response.status === 404) return fail(form.dataset.invalid)
     if (!response.ok) return fail(form.dataset.offline)
     const { location } = await response.json()
@@ -48,24 +49,12 @@ form.addEventListener('submit', async (event) => {
   }
 })
 
-// Links to #join (header, footer, other pages) put the cursor into the field.
-function focusOnJoinLink() {
-  if (window.location.hash === '#join') input.focus()
-}
-
-// Same-page clicks on such a link, also when the URL already ends in #join
-// and no hashchange fires. The browser moves the focus while it follows the
-// anchor, so focus afterwards.
-document.addEventListener('click', (event) => {
-  if (event.target.closest('a[href$="#join"]')) setTimeout(() => input.focus())
-})
-
 const code = new URLSearchParams(window.location.search).get('code')
 if (code) {
   input.value = code
   format()
+  // After load, so the browser's own focus handling doesn't undo it.
+  window.addEventListener('load', () => button.focus())
 }
-// After load: the browser's own scroll to #join would otherwise reset the focus.
-window.addEventListener('load', () => (code ? button.focus() : focusOnJoinLink()))
 // Back from the schnaq: the page may come from the bfcache with a disabled button.
 window.addEventListener('pageshow', format)

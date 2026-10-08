@@ -19,7 +19,7 @@ python3 -m http.server -d dist 8000 # preview on http://localhost:8000
 Pages, titles and the header/footer copy live in `build.mjs`. Fragments may
 use `{{icon:name}}`, `{{app}}`, `{{join}}`, `{{github}}` and `{{lang}}`.
 
-The access code form sits in the hero of the home page (`#join`).
+The access code form sits in the hero of the home page; links to `#code` focus its field.
 `static/assets/join.js` checks the code against
 `https://api.app.schnaq.com/schnaq/by-access-code` and forwards to the schnaq;
 `?code=12345678` pre-fills it, so QR codes and old links keep working.

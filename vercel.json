@@ -6,6 +6,11 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/wp-content/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/en/:path*/feed/",
       "destination": "/en/",
       "permanent": true
@@ -61,7 +66,7 @@
       "permanent": true
     },
     {
-      "source": "/:path(blog|404|en/ama-sea-de-v1|de/author|de/category|de/alternative-slido-mentimeter|de/alternative-zu-slido-schnaq-umfragen-qanda-wortwolke-whiteboard|de/fallstudie-online-seminare-bibliothek-duesseldorf|de/politische-diskussionen-fallstudie)/:rest*/",
+      "source": "/:path(blog|404|en/ama-sea-de-v1|de/author|de/category|de/alternative-[^/]+|de/fallstudie-[^/]+|de/politische-diskussionen-fallstudie)/:rest*/",
       "destination": "/",
       "permanent": true
     },

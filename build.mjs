@@ -16,8 +16,9 @@ const urls = {
 }
 
 const home = (lang) => (lang === 'de' ? '/' : `/${lang}/`)
-// The access code form in the hero of the home page.
-const joinUrl = (lang) => `${home(lang)}#join`
+// The access code field in the hero of the home page. Following a link to a
+// focusable element puts the cursor into it.
+const joinUrl = (lang) => `${home(lang)}#code`
 
 // Section ids on the home page, shared by both languages.
 const sections = ['how-it-works', 'features', 'open-source']

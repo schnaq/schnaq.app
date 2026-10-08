@@ -429,6 +429,8 @@ img {
 
 .join-card input {
   width: 100%;
+  /* Room for the sticky header when a #code link scrolls here. */
+  scroll-margin-top: 7rem;
   padding: 0.7rem 0.5rem;
   border: 2px solid rgb(255 255 255 / 0.18);
   border-radius: var(--radius);
