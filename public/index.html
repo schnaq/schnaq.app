@@ -1,137 +1,349 @@
-<!DOCTYPE html>
-<html lang="de-DE">
-
+<!doctype html>
+<html lang="de">
 <head>
-  <title>schnaq - Join</title>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link href="https://app.schnaq.com/css/main.min.css" rel="stylesheet">
-  <meta content="#1292ee" name="theme-color">
-  <meta content="#ff772d" name="msapplication-TileColor">
-  <meta content="Discover the hidden questions of your audience." name="description">
-  <meta content="business.business" property="og:type">
-  <meta content="schnaq - Join" property="og:title">
-  <meta content="https://schnaq.app" property="og:url">
-  <meta content="https://snq-common.s3.nl-ams.scw.cloud/opengraph/opengraph_general.png" property="og:image">
-  <meta content="Discover the hidden questions of your audience." property="og:description">
-  <meta content="" property="business:contact_data:street_address">
-  <meta content="" property="business:contact_data:locality">
-  <meta content="" property="business:contact_data:region">
-  <meta content="Germany" property="business:contact_data:country_name">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>schnaq – Mit Code teilnehmen</title>
+  <meta name="description" content="Gib den achtstelligen Code ein, um an einem schnaq teilzunehmen – ohne Anmeldung.">
+  <link rel="canonical" href="https://schnaq.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="schnaq">
+  <meta property="og:title" content="schnaq – Mit Code teilnehmen">
+  <meta property="og:description" content="Gib den achtstelligen Code ein, um an einem schnaq teilzunehmen – ohne Anmeldung.">
+  <meta property="og:url" content="https://schnaq.app/">
+  <meta property="og:image" content="https://landing.schnaq.com/assets/img/og-de.png">
+  <meta name="theme-color" content="#001452">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <style>
-    .header {
-      background-color: transparent;
-      background-image: url('https://snq-common.s3.nl-ams.scw.cloud/background/layered_background_square.svg');
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: cover;
+    /* Tokens from the schnaq app and landing.schnaq.com. */
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/assets/inter-latin-wght-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-weight: 300 700;
+      font-display: swap;
+      src: url('/assets/space-grotesk-latin-wght-normal.woff2') format('woff2');
     }
 
-    .fullsize {
+    :root {
+      --background: #f6f8fc;
+      --foreground: #001452;
+      --muted-foreground: #5b7084;
+      --border: #dce2e9;
+      --primary: #1292ee;
+      --primary-strong: #1976d2;
+      --secondary: #ff9901;
+      --danger: #ffb4ab;
+      --radius: 0.375rem;
+      --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --font-heading: 'Space Grotesk', var(--font-body);
+      color-scheme: light;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
       display: flex;
+      flex-direction: column;
       min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 1.25rem 1rem;
+      background:
+        radial-gradient(color-mix(in srgb, var(--primary) 22%, transparent) 1px, transparent 1.2px) 0 0 / 22px 22px,
+        var(--background);
+      color: var(--foreground);
+      font: 400 1rem/1.6 var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary-strong);
+      text-underline-offset: 0.18em;
+    }
+
+    :focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--primary-strong) 55%, transparent);
+      outline-offset: 2px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      align-self: center;
+      color: var(--foreground);
+      text-decoration: none;
+      font: 700 1.375rem/1 var(--font-heading);
+      letter-spacing: -0.03em;
+    }
+
+    .logo img {
+      width: 2.75rem;
+      height: auto;
+    }
+
+    main {
+      width: 100%;
+      max-width: 26rem;
+      margin: auto;
+      padding-block: 2.5rem;
     }
 
     .card {
-      font-size: 125%;
+      padding: 2rem 1.5rem 1.75rem;
+      background: var(--foreground);
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 4px rgb(0 20 82 / 0.05), 0 24px 56px -16px rgb(0 20 82 / 0.45);
+      color: #fff;
+      text-align: center;
+      animation: rise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font: 700 clamp(1.75rem, 7vw, 2.125rem)/1.1 var(--font-heading);
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .hint {
+      margin: 0 0 1.75rem;
+      color: #b9c6e4;
+      font-size: 0.9375rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #b9c6e4;
+      font: 600 0.75rem/1 var(--font-heading);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
 
     input {
+      width: 100%;
+      padding: 0.75rem 0.5rem;
+      border: 2px solid rgb(255 255 255 / 0.18);
+      border-radius: var(--radius);
+      background: rgb(255 255 255 / 0.06);
+      color: var(--secondary);
+      font: 700 clamp(2rem, 11vw, 2.75rem)/1 var(--font-heading);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.08em;
       text-align: center;
+      caret-color: var(--secondary);
+      transition: border-color 0.15s;
+    }
+
+    input::placeholder {
+      color: rgb(255 255 255 / 0.22);
+    }
+
+    input:focus {
+      border-color: var(--secondary);
+      outline: none;
+    }
+
+    input[aria-invalid='true'] {
+      border-color: var(--danger);
+      animation: shake 0.35s;
+    }
+
+    .message {
+      min-height: 1.5rem;
+      margin: 0.75rem 0 1rem;
+      color: var(--danger);
+      font-size: 0.875rem;
+    }
+
+    button {
+      width: 100%;
+      min-height: 3rem;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--secondary);
+      color: var(--foreground);
+      font: 600 1.0625rem/1 var(--font-body);
+      cursor: pointer;
+      transition: background-color 0.15s, transform 0.15s;
+    }
+
+    button:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--secondary) 88%, #000);
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      background: color-mix(in srgb, var(--secondary) 45%, var(--foreground));
+      cursor: default;
+    }
+
+    .note {
+      margin: 1.5rem 0 0;
+      color: var(--muted-foreground);
+      font-size: 0.9375rem;
+      text-align: center;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.25rem;
+      color: var(--muted-foreground);
+      font-size: 0.8125rem;
+    }
+
+    footer a {
+      color: inherit;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+    }
+
+    @keyframes shake {
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
-
 <body>
+  <a class="logo" href="https://landing.schnaq.com/" data-en="https://landing.schnaq.com/en/">
+    <img src="/assets/schnaqqi-240.webp" width="240" height="153" alt="">schnaq
+  </a>
 
+  <main>
+    <form class="card" id="join" novalidate>
+      <h1 data-t="heading">Mach mit!</h1>
+      <p class="hint" data-t="hint">Gib den achtstelligen Code ein, den du auf der Leinwand oder in der Einladung siehst.</p>
+      <label for="code" data-t="label">Zugangscode</label>
+      <input id="code" name="access-code" type="text" inputmode="numeric" autocomplete="off"
+             placeholder="0000 0000" maxlength="9" required aria-describedby="message">
+      <p class="message" id="message" role="alert" aria-live="assertive"></p>
+      <button type="submit" disabled data-t="submit">Teilnehmen</button>
+    </form>
+    <p class="note" data-t="note">Ohne Anmeldung. Du organisierst selbst etwas? <a href="https://landing.schnaq.com/">Erstelle kostenlos einen schnaq.</a></p>
+  </main>
 
-<div class="header fullsize">
+  <footer>
+    <a href="https://schnaq.com/de/legal-note" data-en="https://schnaq.com/en/legal-note" data-t="legal">Impressum</a>
+    <a href="https://schnaq.com/de/privacy" data-en="https://schnaq.com/en/privacy" data-t="privacy">Datenschutz</a>
+    <span>© schnaq GmbH</span>
+  </footer>
 
-  <div class="container">
+  <script>
+    const API = 'https://api.app.schnaq.com/schnaq/by-access-code'
 
-    <section class="pt-5">
-      <a href="https://schnaq.com">
-        <img alt="schnaq logo" src="https://snq-common.s3.nl-ams.scw.cloud/logos/schnaq_white.png" width="150px">
-      </a>
-    </section>
-
-    <div class="text-white text-center pt-5">
-      <h1>Join a schnaq</h1>
-    </div>
-
-    <section class="d-flex justify-content-center py-5">
-      <div class="card shadow text-center" style="width: 25rem;">
-        <div class="card-body">
-          <form id="join-schnaq">
-            <div class="form-group">
-              <label class="h4" for="access-code-input">Access Code</label>
-              <input aria-describedby="access-code-info" class="form-control form-control-lg" id="access-code-input"
-                     name="access-code" placeholder="0000 0000" required type="number">
-              <div class="invalid-feedback" id="validationServer03Feedback">
-                The access-code is invalid.
-              </div>
-              <small class="form-text text-muted" id="access-code-info">
-                Please enter the eight-digit code.
-              </small>
-            </div>
-            <div class="text-center">
-              <button class="btn btn-lg btn-secondary w-75" type="submit">Join</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <div class="text-white mt-auto text-center pt-5">
-      <a class="btn btn-link text-white" href="https://schnaq.com/legal-note">Legal Note</a> |
-      <a class="btn btn-link text-white" href="https://schnaq.com/privacy">Privacy</a>
-    </div>
-  </div>
-
-</div>
-
-<script>
-  /**
-   * Read code from URL if available.
-   */
-  function codeFromURL() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get("code"); 
-  }
-  document.getElementById("access-code-input").value = codeFromURL();
-</script>
-
-<script>
-  window.addEventListener("load", function () {
-    function sendData() {
-      const request = new XMLHttpRequest();
-      const formData = new FormData(form);
-      request.responseType = "json";
-
-      const parameterAsString = new URLSearchParams(formData).toString();
-
-      request.addEventListener("load", function (event) {
-        if (event.currentTarget.status < 400) {
-          document.getElementById("access-code-input").classList.add("is-valid");
-          window.location.href = request.response.location;
-        } else {
-          document.getElementById("access-code-input").classList.add("is-invalid");
-        }
-      });
-
-      request.open("GET", "https://api.app.schnaq.com/schnaq/by-access-code?" + parameterAsString);
-      request.send(formData);
+    const texts = {
+      de: {
+        invalid: 'Diesen Code gibt es nicht oder er ist abgelaufen.',
+        offline: 'Der Server ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
+      },
+      en: {
+        title: 'schnaq – Join with a code',
+        heading: 'Join in!',
+        hint: 'Enter the eight-digit code shown on the screen or in your invitation.',
+        label: 'Access code',
+        submit: 'Join',
+        note: 'No sign-up needed. Organising something yourself? <a href="https://landing.schnaq.com/en/">Create a schnaq for free.</a>',
+        legal: 'Legal notice',
+        privacy: 'Privacy',
+        invalid: 'This code doesn’t exist or has expired.',
+        offline: 'The server can’t be reached right now. Please try again in a moment.',
+      },
     }
 
-    // Access the form element...
-    const form = document.getElementById("join-schnaq");
-    // ...and take over its submit event.
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      sendData();
-    });
-  });
-</script>
+    const lang = (navigator.languages?.[0] ?? navigator.language ?? 'de').toLowerCase().startsWith('de') ? 'de' : 'en'
+    const t = texts[lang]
 
+    // The markup and its links are German; switch copy and links for everyone else.
+    if (lang === 'en') {
+      document.documentElement.lang = 'en'
+      document.title = t.title
+      document.querySelectorAll('[data-t]').forEach((el) => {
+        el.innerHTML = t[el.dataset.t]
+      })
+      document.querySelectorAll('[data-en]').forEach((el) => {
+        el.href = el.dataset.en
+      })
+    }
+
+    const form = document.getElementById('join')
+    const input = document.getElementById('code')
+    const button = form.querySelector('button')
+    const message = document.getElementById('message')
+
+    const digits = () => input.value.replace(/\D/g, '')
+
+    // Show the code as "1234 5678", like the app does on the projector. Codes
+    // are numbers, and the app's copy button drops leading zeros, so shorter
+    // input is padded instead of rejected.
+    function format() {
+      const d = digits().slice(0, 8)
+      input.value = d.length > 4 ? `${d.slice(0, 4)} ${d.slice(4)}` : d
+      button.disabled = d.length === 0
+    }
+
+    function fail(text) {
+      input.setAttribute('aria-invalid', 'true')
+      message.textContent = text
+      button.disabled = false
+      input.focus()
+    }
+
+    input.addEventListener('input', () => {
+      input.removeAttribute('aria-invalid')
+      message.textContent = ''
+      format()
+    })
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const code = digits().padStart(8, '0')
+
+      button.disabled = true
+      try {
+        const response = await fetch(`${API}?access-code=${code}`)
+        if (response.status === 400 || response.status === 404) return fail(t.invalid)
+        if (!response.ok) return fail(t.offline)
+        const { location } = await response.json()
+        window.location.href = location
+      } catch {
+        fail(t.offline)
+      }
+    })
+
+    input.value = new URLSearchParams(window.location.search).get('code') ?? ''
+    format()
+    input.focus()
+    // Back from the schnaq: the page may come from the bfcache with a disabled button.
+    window.addEventListener('pageshow', format)
+  </script>
 </body>
-
 </html>
