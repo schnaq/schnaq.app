@@ -234,7 +234,7 @@
   </style>
 </head>
 <body>
-  <a class="logo" href="https://landing.schnaq.com/" data-path="/">
+  <a class="logo" href="https://landing.schnaq.com/" data-en="https://landing.schnaq.com/en/">
     <img src="/assets/schnaqqi-240.webp" width="240" height="153" alt="">schnaq
   </a>
 
@@ -248,18 +248,17 @@
       <p class="message" id="message" role="alert" aria-live="assertive"></p>
       <button type="submit" disabled data-t="submit">Teilnehmen</button>
     </form>
-    <p class="note" data-t="note">Ohne Anmeldung. Du organisierst selbst etwas? <a href="https://landing.schnaq.com/" data-path="/">Erstelle kostenlos einen schnaq.</a></p>
+    <p class="note" data-t="note">Ohne Anmeldung. Du organisierst selbst etwas? <a href="https://landing.schnaq.com/">Erstelle kostenlos einen schnaq.</a></p>
   </main>
 
   <footer>
-    <a href="https://landing.schnaq.com/de/legal-note/" data-path="/legal-note/" data-t="legal">Impressum</a>
-    <a href="https://landing.schnaq.com/de/privacy/" data-path="/privacy/" data-t="privacy">Datenschutz</a>
+    <a href="https://schnaq.com/de/legal-note" data-en="https://schnaq.com/en/legal-note" data-t="legal">Impressum</a>
+    <a href="https://schnaq.com/de/privacy" data-en="https://schnaq.com/en/privacy" data-t="privacy">Datenschutz</a>
     <span>© schnaq GmbH</span>
   </footer>
 
   <script>
     const API = 'https://api.app.schnaq.com/schnaq/by-access-code'
-    const LANDING = 'https://landing.schnaq.com'
 
     const texts = {
       de: {
@@ -272,7 +271,7 @@
         hint: 'Enter the eight-digit code shown on the screen or in your invitation.',
         label: 'Access code',
         submit: 'Join',
-        note: 'No sign-up needed. Organising something yourself? <a href="https://landing.schnaq.com/en/" data-path="/">Create a schnaq for free.</a>',
+        note: 'No sign-up needed. Organising something yourself? <a href="https://landing.schnaq.com/en/">Create a schnaq for free.</a>',
         legal: 'Legal notice',
         privacy: 'Privacy',
         invalid: 'This code doesn’t exist or has expired.',
@@ -290,8 +289,8 @@
       document.querySelectorAll('[data-t]').forEach((el) => {
         el.innerHTML = t[el.dataset.t]
       })
-      document.querySelectorAll('[data-path]').forEach((el) => {
-        el.href = `${LANDING}/en${el.dataset.path}`
+      document.querySelectorAll('[data-en]').forEach((el) => {
+        el.href = el.dataset.en
       })
     }
 
