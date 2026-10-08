@@ -1,0 +1,215 @@
+<section class="hero">
+  <div class="wrap">
+    <form class="join-card" id="join" novalidate
+          data-invalid="Diesen Code gibt es nicht oder er ist abgelaufen."
+          data-offline="Der Server ist gerade nicht erreichbar. Versuch es gleich noch einmal.">
+      <p class="join-title">Mach mit!</p>
+      <p class="join-hint">Gib den achtstelligen Code ein, den du auf der Leinwand oder in der Einladung siehst.</p>
+      <label for="code">Zugangscode</label>
+      <input id="code" name="access-code" type="text" inputmode="numeric" autocomplete="off"
+             placeholder="0000 0000" maxlength="9" required aria-describedby="join-message">
+      <p class="join-message" id="join-message" role="alert"></p>
+      <button class="btn btn-accent" type="submit" disabled>Teilnehmen</button>
+      <p class="join-note">Ohne Anmeldung, auf jedem Gerät mit Browser.</p>
+    </form>
+
+    <div class="reveal">
+      <span class="label label-accent">Kostenlos · Open Source</span>
+      <h1>Veranstaltungen so <em>interaktiv</em>, wie sie sein sollen.</h1>
+      <p class="lead">Mit schnaq stellt dein Publikum Fragen, stimmt live ab und füllt Wortwolken – vom Smartphone aus, mit einem Code und ohne Anmeldung.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{app}}/{{lang}}/schnaq/create">Kostenlos schnaq erstellen</a>
+        <a class="btn btn-outline" href="#how-it-works">So geht’s</a>
+      </div>
+      <p class="hero-note">Teilnehmende brauchen kein Konto. Zum Erstellen meldest du dich kostenlos an.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <div class="wrap split">
+    <div>
+      <div class="section-head">
+        <span class="label">So geht’s</span>
+        <h2>In drei Schritten zur interaktiven Runde</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>schnaq erstellen</h3>
+          <p>Melde dich kostenlos an, gib deinem schnaq einen Namen und lege Umfragen, Wortwolken oder eine Q&amp;A an.</p>
+        </li>
+        <li>
+          <h3>Code teilen</h3>
+          <p>Jeder schnaq hat einen Link und einen achtstelligen Code. Dein Publikum gibt ihn auf schnaq.app ein oder scannt den QR-Code vom Beamer.</p>
+        </li>
+        <li>
+          <h3>Mitmachen lassen</h3>
+          <p>Alle fragen, stimmen ab und diskutieren – anonym, ohne Konto, auf jedem Gerät mit Browser. Die Ergebnisse siehst du live.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="stage" role="img" aria-label="Beispiel: ein schnaq auf dem Beamer mit Zugangscode, Live-Umfrage, einer hochgevoteten Frage und einer Wortwolke">
+      <div class="screen">
+        <div class="screen-bar">Vorlesung · Einführung in die Informatik <span class="live">Live</span></div>
+        <div class="join">
+          <small>Mitmachen auf <b>schnaq.app</b> mit dem Code</small>
+          <span class="code">4821 0736</span>
+        </div>
+        <div class="poll">
+          <p class="poll-q">Wie sicher fühlst du dich mit Rekursion?</p>
+          <div class="bar" style="--value: 21%"><span>Sehr sicher</span><b>21 %</b></div>
+          <div class="bar is-leading" style="--value: 46%"><span>Geht so</span><b>46 %</b></div>
+          <div class="bar" style="--value: 33%"><span>Bitte noch mal erklären</span><b>33 %</b></div>
+        </div>
+      </div>
+      <div class="float float-cloud"><span>Beispiele</span> <span>Pause</span> <span>Rekursion</span> <span>Kaffee</span> <span>Übung</span></div>
+      <div class="float float-qa">
+        <span class="upvote">▲<br>23</span>
+        <span>Gibt es die Folien hinterher?<small>Q&amp;A · anonym</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Funktionen</span>
+      <h2>Alles, was eine Runde lebendig macht</h2>
+      <p class="lead">Kombiniere die Bausteine frei in einem schnaq.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        {{icon:poll}}
+        <h3>Live-Umfragen</h3>
+        <p>Einfach- oder Mehrfachauswahl und Rankings. Ergebnisse erscheinen live oder erst, wenn du sie zeigst – im Präsentationsmodus groß auf dem Beamer.</p>
+      </article>
+      <article class="feature">
+        {{icon:cloud}}
+        <h3>Wortwolken</h3>
+        <p>Begriffe sammeln und zusehen, wie die Wolke wächst. Als Bild oder CSV exportieren.</p>
+      </article>
+      <article class="feature">
+        {{icon:qa}}
+        <h3>Q&amp;A</h3>
+        <p>Fragen anonym stellen, die wichtigsten nach oben voten und gute Antworten für alle sichtbar markieren.</p>
+      </article>
+      <article class="feature">
+        {{icon:activation}}
+        <h3>Aktivierung</h3>
+        <p>Ein Knopf für alle: Stell eine Frage in den Raum und sieh am Zähler, wie viele mitmachen.</p>
+      </article>
+      <article class="feature">
+        {{icon:mindmap}}
+        <h3>Diskussionen &amp; Mindmap</h3>
+        <p>Beiträge mit Antworten dafür und dagegen, auch mit Skizzen vom Whiteboard. schnaq ordnet alles automatisch in einer Mindmap.</p>
+      </article>
+      <article class="feature">
+        {{icon:feedback}}
+        <h3>Feedback</h3>
+        <p>Frag nach der Veranstaltung mit eigenen Formularen nach und werte die Antworten gesammelt aus.</p>
+      </article>
+      <article class="feature">
+        {{icon:moderation}}
+        <h3>Moderation</h3>
+        <p>Beiträge löschen, Eingaben sperren und weitere Moderator:innen per E-Mail einladen.</p>
+      </article>
+      <article class="feature">
+        {{icon:theme}}
+        <h3>Eigenes Design</h3>
+        <p>Eigene Farben, Logo und Titelbild, damit der schnaq zu deiner Veranstaltung passt.</p>
+      </article>
+      <article class="feature">
+        {{icon:embed}}
+        <h3>Einbetten &amp; Export</h3>
+        <p>Per iframe in Website oder Lernplattform einbinden und Ergebnisse als Text, Bild oder CSV mitnehmen.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="use-cases">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Einsatz</span>
+      <h2>Für Hörsaal, Bühne und Besprechungsraum</h2>
+    </div>
+    <dl class="uses">
+      <div>
+        <dt>Hochschule &amp; Schule</dt>
+        <dd>Verständnis abfragen und die Fragen sammeln, die sich sonst niemand zu stellen traut – auch in großen Vorlesungen.</dd>
+      </div>
+      <div>
+        <dt>Konferenzen &amp; Events</dt>
+        <dd>Publikumsfragen fürs Panel sammeln, live abstimmen lassen und die Stimmung auf die Leinwand bringen.</dd>
+      </div>
+      <div>
+        <dt>Meetings &amp; All-Hands</dt>
+        <dd>Anonyme Fragen an die Geschäftsführung und schnelle Stimmungsbilder ohne Handzeichen-Chaos.</dd>
+      </div>
+      <div>
+        <dt>Workshops &amp; Weiterbildungen</dt>
+        <dd>Ideen in Wortwolken sammeln, Prioritäten per Ranking finden und zum Abschluss Feedback einholen.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section band" id="open-source">
+  <div class="wrap split">
+    <div>
+      <div class="section-head">
+        <span class="label label-accent">Open Source</span>
+        <h2>Kostenlos. Offen. Datensparsam.</h2>
+      </div>
+      <ul class="facts">
+        <li><strong>Kostenlos, ohne Abo</strong><span>Alle Funktionen ohne Paywall und ohne Kreditkarte.</span></li>
+        <li><strong>Open Source unter AGPL-3.0</strong><span>Der komplette Quellcode liegt auf GitHub. Du kannst schnaq prüfen, verbessern oder selbst betreiben.</span></li>
+        <li><strong>Teilnahme ohne Konto</strong><span>Wer mitmacht, braucht keine Anmeldung – nur einen frei wählbaren Anzeigenamen.</span></li>
+        <li><strong>Server in der EU</strong><span>Datenbank und Dateien liegen bei Scaleway in Amsterdam. Keine Werbe- oder Tracking-Cookies.</span></li>
+      </ul>
+    </div>
+    <div>
+      <figure class="terminal">
+        <figcaption class="terminal-head">github.com/schnaq/schnaq</figcaption>
+<pre><span class="prompt">$ </span>git clone https://github.com/schnaq/schnaq.git
+<span class="comment"># Clojure · ClojureScript · Datomic</span>
+<span class="comment"># Lizenz: GNU AGPL-3.0</span></pre>
+      </figure>
+      <div class="actions">
+        <a class="btn btn-outline" href="{{github}}">Quellcode auf GitHub</a>
+        <a class="btn btn-outline" href="https://schnaq.com/de/privacy">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="origin">
+  <div class="wrap origin">
+    <div>
+      <span class="label">Herkunft</span>
+      <h2>Aus der Forschung in die Praxis</h2>
+      <p class="lead">schnaq basiert auf Forschung zu Online-Diskussionen an der Heinrich-Heine-Universität Düsseldorf, wo die Gründer Dr. Christian Meter und Dr. Alexander Schneider über strukturierte Diskussionen promoviert haben.</p>
+      <p>Heute entwickelt die schnaq GmbH aus Düsseldorf die App als Open-Source-Projekt der <a href="https://schnaq.com/de/labs/schnaq">schnaq Labs</a> weiter. Artikel, Interviews und Dissertationen findest du unter <a href="/de/publications/">Publikationen</a>.</p>
+    </div>
+    <dl class="tiles">
+      <div><dt>0 €</dt><dd>für Veranstaltende</dd></div>
+      <div><dt>0</dt><dd>Konten für Teilnehmende</dd></div>
+      <div><dt>2</dt><dd>Sprachen: Deutsch und Englisch</dd></div>
+      <div><dt>100 %</dt><dd>Open Source</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="get-started">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Probier’s bei deiner nächsten Veranstaltung aus.</h2>
+      <p>Anmelden, schnaq anlegen, Code teilen – fertig. Fragen oder Ideen? Schreib uns an <a href="mailto:info@schnaq.com">info@schnaq.com</a>.</p>
+      <div class="actions">
+        <a class="btn btn-accent" href="{{app}}/{{lang}}/schnaq/create">Kostenlos schnaq erstellen</a>
+        <a class="btn btn-outline" href="#how-it-works">So geht’s</a>
+      </div>
+    </div>
+  </div>
+</section>

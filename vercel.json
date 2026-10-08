@@ -1,0 +1,109 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node build.mjs",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/en/:path*/feed/",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/feed/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:f(sitemap_index|page-sitemap|post-sitemap).xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/de/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:page(privacy|agb)/",
+      "destination": "/de/:page/",
+      "permanent": true
+    },
+    {
+      "source": "/en/agb/",
+      "destination": "/de/agb/",
+      "permanent": true
+    },
+    {
+      "source": "/legal-note/",
+      "destination": "https://schnaq.com/de/legal-note",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|en)/legal-note/",
+      "destination": "https://schnaq.com/:lang/legal-note",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|en)/press/",
+      "destination": "/:lang/publications/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|en)/about/",
+      "destination": "https://schnaq.com/:lang/about",
+      "permanent": true
+    },
+    {
+      "source": "/:path(en/category|en/test)/:rest*/",
+      "destination": "/en/",
+      "permanent": true
+    },
+    {
+      "source": "/:path(blog|404|en/ama-sea-de-v1|de/author|de/category|de/alternative-slido-mentimeter|de/alternative-zu-slido-schnaq-umfragen-qanda-wortwolke-whiteboard|de/fallstudie-online-seminare-bibliothek-duesseldorf|de/politische-diskussionen-fallstudie)/:rest*/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path(product|de/product|de/funktionen|de/online-diskussionsplattform)/:rest*/",
+      "destination": "/#features",
+      "permanent": true
+    },
+    {
+      "source": "/:path(en/product|en/features)/:rest*/",
+      "destination": "/en/#features",
+      "permanent": true
+    },
+    {
+      "source": "/:path(s|de/schulen|de/universitaeten|de/weiterbildungen|de/veranstaltungen)/",
+      "destination": "/#use-cases",
+      "permanent": true
+    },
+    {
+      "source": "/de/kontakt/",
+      "destination": "/#get-started",
+      "permanent": true
+    },
+    {
+      "source": "/en/contact/",
+      "destination": "/en/#get-started",
+      "permanent": true
+    },
+    {
+      "source": "/schnaq/:path*/",
+      "destination": "https://app.schnaq.com/schnaq/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(de|en)/schnaq/:path*/",
+      "destination": "https://app.schnaq.com/:lang/schnaq/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/schnaqs/:path*/",
+      "destination": "https://app.schnaq.com/schnaqs/:path*",
+      "permanent": true
+    }
+  ]
+}

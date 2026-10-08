@@ -1,0 +1,215 @@
+<section class="hero">
+  <div class="wrap">
+    <form class="join-card" id="join" novalidate
+          data-invalid="This code doesn’t exist or has expired."
+          data-offline="The server can’t be reached right now. Please try again in a moment.">
+      <p class="join-title">Join in!</p>
+      <p class="join-hint">Enter the eight-digit code shown on the screen or in your invitation.</p>
+      <label for="code">Access code</label>
+      <input id="code" name="access-code" type="text" inputmode="numeric" autocomplete="off"
+             placeholder="0000 0000" maxlength="9" required aria-describedby="join-message">
+      <p class="join-message" id="join-message" role="alert"></p>
+      <button class="btn btn-accent" type="submit" disabled>Join</button>
+      <p class="join-note">No sign-up, on any device with a browser.</p>
+    </form>
+
+    <div class="reveal">
+      <span class="label label-accent">Free · Open source</span>
+      <h1>Events as <em>interactive</em> as they should be.</h1>
+      <p class="lead">With schnaq your audience asks questions, votes live and fills word clouds – from their phones, with a code and without signing up.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{app}}/{{lang}}/schnaq/create">Create a schnaq for free</a>
+        <a class="btn btn-outline" href="#how-it-works">How it works</a>
+      </div>
+      <p class="hero-note">Participants don’t need an account. To create a schnaq, sign up for free.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how-it-works">
+  <div class="wrap split">
+    <div>
+      <div class="section-head">
+        <span class="label">How it works</span>
+        <h2>Three steps to an interactive session</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Create a schnaq</h3>
+          <p>Sign up for free, give your schnaq a name and add polls, word clouds or a Q&amp;A.</p>
+        </li>
+        <li>
+          <h3>Share the code</h3>
+          <p>Every schnaq has a link and an eight-digit code. Your audience enters it at schnaq.app or scans the QR code on the projector.</p>
+        </li>
+        <li>
+          <h3>Let everyone join in</h3>
+          <p>People ask, vote and discuss – anonymously, without an account, on any device with a browser. You see the results live.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="stage" role="img" aria-label="Example: a schnaq on the projector with its access code, a live poll, an upvoted question and a word cloud">
+      <div class="screen">
+        <div class="screen-bar">Lecture · Introduction to Computer Science <span class="live">Live</span></div>
+        <div class="join">
+          <small>Join at <b>schnaq.app</b> with the code</small>
+          <span class="code">4821 0736</span>
+        </div>
+        <div class="poll">
+          <p class="poll-q">How confident are you with recursion?</p>
+          <div class="bar" style="--value: 21%"><span>Very confident</span><b>21%</b></div>
+          <div class="bar is-leading" style="--value: 46%"><span>Somewhat</span><b>46%</b></div>
+          <div class="bar" style="--value: 33%"><span>Please explain it again</span><b>33%</b></div>
+        </div>
+      </div>
+      <div class="float float-cloud"><span>Examples</span> <span>Break</span> <span>Recursion</span> <span>Coffee</span> <span>Practice</span></div>
+      <div class="float float-qa">
+        <span class="upvote">▲<br>23</span>
+        <span>Will the slides be shared afterwards?<small>Q&amp;A · anonymous</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Features</span>
+      <h2>Everything that brings a room to life</h2>
+      <p class="lead">Combine the building blocks freely in one schnaq.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        {{icon:poll}}
+        <h3>Live polls</h3>
+        <p>Single choice, multiple choice and rankings. Results appear live or only when you reveal them – full screen on the projector in presentation mode.</p>
+      </article>
+      <article class="feature">
+        {{icon:cloud}}
+        <h3>Word clouds</h3>
+        <p>Collect terms and watch the cloud grow. Export it as an image or CSV.</p>
+      </article>
+      <article class="feature">
+        {{icon:qa}}
+        <h3>Q&amp;A</h3>
+        <p>Ask questions anonymously, upvote the most important ones and highlight good answers for everyone.</p>
+      </article>
+      <article class="feature">
+        {{icon:activation}}
+        <h3>Activation</h3>
+        <p>One button for everyone: ask the room a question and watch the counter show how many take part.</p>
+      </article>
+      <article class="feature">
+        {{icon:mindmap}}
+        <h3>Discussions &amp; mind map</h3>
+        <p>Posts with replies for and against, including whiteboard sketches. schnaq arranges everything in a mind map automatically.</p>
+      </article>
+      <article class="feature">
+        {{icon:feedback}}
+        <h3>Feedback</h3>
+        <p>Follow up after your event with your own forms and review the answers in one place.</p>
+      </article>
+      <article class="feature">
+        {{icon:moderation}}
+        <h3>Moderation</h3>
+        <p>Delete posts, lock input and invite more moderators by email.</p>
+      </article>
+      <article class="feature">
+        {{icon:theme}}
+        <h3>Your own design</h3>
+        <p>Your colours, logo and header image, so the schnaq matches your event.</p>
+      </article>
+      <article class="feature">
+        {{icon:embed}}
+        <h3>Embed &amp; export</h3>
+        <p>Embed it in your website or learning platform via iframe and take results with you as text, image or CSV.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="use-cases">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="label">Use cases</span>
+      <h2>For lecture halls, stages and meeting rooms</h2>
+    </div>
+    <dl class="uses">
+      <div>
+        <dt>Universities &amp; schools</dt>
+        <dd>Check understanding and collect the questions nobody dares to ask out loud – even in large lectures.</dd>
+      </div>
+      <div>
+        <dt>Conferences &amp; events</dt>
+        <dd>Gather audience questions for the panel, run live votes and put the mood of the room on screen.</dd>
+      </div>
+      <div>
+        <dt>Meetings &amp; all-hands</dt>
+        <dd>Anonymous questions for leadership and quick pulse checks without a show of hands.</dd>
+      </div>
+      <div>
+        <dt>Workshops &amp; training</dt>
+        <dd>Collect ideas in word clouds, set priorities with rankings and gather feedback at the end.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="section band" id="open-source">
+  <div class="wrap split">
+    <div>
+      <div class="section-head">
+        <span class="label label-accent">Open source</span>
+        <h2>Free. Open. Data-minimal.</h2>
+      </div>
+      <ul class="facts">
+        <li><strong>Free, no subscription</strong><span>Every feature, no paywall, no credit card.</span></li>
+        <li><strong>Open source under AGPL-3.0</strong><span>The complete source code is on GitHub. You can inspect it, improve it or run schnaq yourself.</span></li>
+        <li><strong>Join without an account</strong><span>Participants don’t sign up – they only pick a display name.</span></li>
+        <li><strong>Servers in the EU</strong><span>Database and files are hosted by Scaleway in Amsterdam. No advertising or tracking cookies.</span></li>
+      </ul>
+    </div>
+    <div>
+      <figure class="terminal">
+        <figcaption class="terminal-head">github.com/schnaq/schnaq</figcaption>
+<pre><span class="prompt">$ </span>git clone https://github.com/schnaq/schnaq.git
+<span class="comment"># Clojure · ClojureScript · Datomic</span>
+<span class="comment"># License: GNU AGPL-3.0</span></pre>
+      </figure>
+      <div class="actions">
+        <a class="btn btn-outline" href="{{github}}">Source code on GitHub</a>
+        <a class="btn btn-outline" href="https://schnaq.com/en/privacy">Privacy policy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="origin">
+  <div class="wrap origin">
+    <div>
+      <span class="label">Origin</span>
+      <h2>From research into practice</h2>
+      <p class="lead">schnaq is based on research into online discussions at Heinrich Heine University Düsseldorf, where the founders Dr Christian Meter and Dr Alexander Schneider earned their doctorates on structured discussions.</p>
+      <p>Today schnaq GmbH in Düsseldorf keeps developing the app as an open-source project of <a href="https://schnaq.com/en/labs/schnaq">schnaq Labs</a>. Articles, interviews and dissertations are listed under <a href="/en/publications/">Publications</a>.</p>
+    </div>
+    <dl class="tiles">
+      <div><dt>€0</dt><dd>for organisers</dd></div>
+      <div><dt>0</dt><dd>accounts for participants</dd></div>
+      <div><dt>2</dt><dd>languages: German and English</dd></div>
+      <div><dt>100%</dt><dd>open source</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="get-started">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Try it at your next event.</h2>
+      <p>Sign up, create a schnaq, share the code – done. Questions or ideas? Write to us at <a href="mailto:info@schnaq.com">info@schnaq.com</a>.</p>
+      <div class="actions">
+        <a class="btn btn-accent" href="{{app}}/{{lang}}/schnaq/create">Create a schnaq for free</a>
+        <a class="btn btn-outline" href="#how-it-works">How it works</a>
+      </div>
+    </div>
+  </div>
+</section>
