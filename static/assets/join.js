@@ -2,7 +2,6 @@
 // app does on the projector, checks it against the API and forwards to the
 // schnaq. ?code=12345678 (QR codes, old links) pre-fills it. The error texts
 // come from the form's data attributes, so they are in the page's language.
-// Links to #code focus the field natively.
 
 const API = 'https://api.app.schnaq.com/schnaq/by-access-code'
 
@@ -26,10 +25,15 @@ function fail(text) {
   input.focus()
 }
 
-input.addEventListener('input', () => {
+input.addEventListener('input', (event) => {
   input.removeAttribute('aria-invalid')
   message.textContent = ''
+  if (event.isComposing) return
+  // Keep the caret behind the same digit when the space is added or removed.
+  const digitsBeforeCaret = input.value.slice(0, input.selectionStart).replace(/\D/g, '').length
   format()
+  const caret = digitsBeforeCaret > 4 ? digitsBeforeCaret + 1 : digitsBeforeCaret
+  input.setSelectionRange(caret, caret)
 })
 
 form.addEventListener('submit', async (event) => {
@@ -49,12 +53,22 @@ form.addEventListener('submit', async (event) => {
   }
 })
 
+// Links to #code (header, footer, other pages) put the cursor into the field.
+// Chromium does that on its own; this covers browsers that only scroll. After
+// load and after the click, so the browser's own anchor handling comes first.
+const focusField = () => setTimeout(() => input.focus())
+document.addEventListener('click', (event) => {
+  if (event.target.closest('a[href$="#code"]')) focusField()
+})
+
 const code = new URLSearchParams(window.location.search).get('code')
 if (code) {
   input.value = code
   format()
-  // After load, so the browser's own focus handling doesn't undo it.
-  window.addEventListener('load', () => button.focus())
 }
+window.addEventListener('load', () => {
+  if (code) button.focus()
+  else if (window.location.hash === '#code') focusField()
+})
 // Back from the schnaq: the page may come from the bfcache with a disabled button.
 window.addEventListener('pageshow', format)

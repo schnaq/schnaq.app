@@ -6,6 +6,25 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "^([a-ce-zA-CE-Z]|[dD][a-df-zA-DF-Z])"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "referer",
+          "value": "^https://(www\\.)?schnaq\\.app"
+        }
+      ],
+      "destination": "/en/",
+      "permanent": false
+    },
+    {
       "source": "/wp-content/(.*)",
       "destination": "/",
       "permanent": true
