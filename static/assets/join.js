@@ -53,6 +53,13 @@ function focusOnJoinLink() {
   if (window.location.hash === '#join') input.focus()
 }
 
+// Same-page clicks on such a link, also when the URL already ends in #join
+// and no hashchange fires. The browser moves the focus while it follows the
+// anchor, so focus afterwards.
+document.addEventListener('click', (event) => {
+  if (event.target.closest('a[href$="#join"]')) setTimeout(() => input.focus())
+})
+
 const code = new URLSearchParams(window.location.search).get('code')
 if (code) {
   input.value = code
@@ -60,6 +67,5 @@ if (code) {
 }
 // After load: the browser's own scroll to #join would otherwise reset the focus.
 window.addEventListener('load', () => (code ? button.focus() : focusOnJoinLink()))
-window.addEventListener('hashchange', focusOnJoinLink)
 // Back from the schnaq: the page may come from the bfcache with a disabled button.
 window.addEventListener('pageshow', format)

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://landing.schnaq.com/sitemap.xml
+Sitemap: https://schnaq.app/sitemap.xml
