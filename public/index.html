@@ -263,7 +263,6 @@
     const texts = {
       de: {
         title: 'schnaq – Mit Code teilnehmen',
-        missing: 'Bitte gib alle acht Ziffern ein.',
         invalid: 'Diesen Code gibt es nicht oder er ist abgelaufen.',
         offline: 'Der Server ist gerade nicht erreichbar. Versuch es gleich noch einmal.',
         links: { home: '/', legal: '/de/legal-note/', privacy: '/de/privacy/' },
@@ -277,7 +276,6 @@
         note: 'No sign-up needed. Organising something yourself? <a href="https://landing.schnaq.com/en/" data-href="home">Create a schnaq for free.</a>',
         legal: 'Legal notice',
         privacy: 'Privacy',
-        missing: 'Please enter all eight digits.',
         invalid: 'This code doesn’t exist or has expired.',
         offline: 'The server can’t be reached right now. Please try again in a moment.',
         links: { home: '/en/', legal: '/en/legal-note/', privacy: '/en/privacy/' },
@@ -306,11 +304,13 @@
 
     const digits = () => input.value.replace(/\D/g, '')
 
-    // Show the code as "1234 5678", like the app does on the projector.
+    // Show the code as "1234 5678", like the app does on the projector. Codes
+    // are numbers, and the app's copy button drops leading zeros, so shorter
+    // input is padded instead of rejected.
     function format() {
       const d = digits().slice(0, 8)
       input.value = d.length > 4 ? `${d.slice(0, 4)} ${d.slice(4)}` : d
-      button.disabled = d.length !== 8
+      button.disabled = d.length === 0
     }
 
     function fail(text) {
@@ -328,13 +328,13 @@
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault()
-      const code = digits()
-      if (code.length !== 8) return fail(t.missing)
+      const code = digits().padStart(8, '0')
 
       button.disabled = true
       try {
         const response = await fetch(`${API}?access-code=${code}`)
-        if (!response.ok) return fail(t.invalid)
+        if (response.status === 400 || response.status === 404) return fail(t.invalid)
+        if (!response.ok) return fail(t.offline)
         const { location } = await response.json()
         window.location.href = location
       } catch {
@@ -345,6 +345,8 @@
     input.value = new URLSearchParams(window.location.search).get('code') ?? ''
     format()
     input.focus()
+    // Back from the schnaq: the page may come from the bfcache with a disabled button.
+    window.addEventListener('pageshow', format)
   </script>
 </body>
 </html>
