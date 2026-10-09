@@ -777,6 +777,10 @@ img {
   font-size: 1.25rem;
 }
 
+.steps + .actions {
+  margin-top: 1.5rem;
+}
+
 .steps p {
   margin: 0;
   color: var(--muted-foreground);
